@@ -34,8 +34,8 @@ public class CategoryService : ICategoryService
     }
     public void Delete(int id)
     {
-        var user = getCategory(id);
-        _context.Category.Remove(user);
+        var Category = getCategory(id);
+        _context.Category.Remove(Category);
         _context.SaveChanges();
     }
 

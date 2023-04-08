@@ -20,7 +20,13 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // configure DI for application services
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-    
+builder.Services.AddScoped<IColorService, ColorService>();
+builder.Services.AddScoped<ISizeService, SizeService>();
+builder.Services.AddScoped<IFilterService, FilterService>();
+builder.Services.AddScoped<IStoredProcedureService, StoredProcedureService>();
+builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
+
+
 builder.Services.AddSwaggerGen(c =>
 {
 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo{ Title = "My API", Version = "v1" });

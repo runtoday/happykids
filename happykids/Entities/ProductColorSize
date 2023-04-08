@@ -1,0 +1,7 @@
+namespace happykids.Entities;
+
+  public class ProductColorSize
+  {
+    public virtual ProductColor ProductColor { get; set; }
+    public virtual IEnumerable<Size> Size { get; set; }
+  }

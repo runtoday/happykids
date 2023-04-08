@@ -8,9 +8,11 @@ export class FetchData extends Component {
     this.state = { forecasts: [], loading: true };
   }
 
+
   componentDidMount() {
     this.populateWeatherData();
   }
+
 
   static renderForecastsTable(forecasts) {
     return (
@@ -41,6 +43,7 @@ export class FetchData extends Component {
     let contents = this.state.loading
       ? <p><em>Loading...</em></p>
       : FetchData.renderForecastsTable(this.state.forecasts);
+        FetchData.RenderingArrayOfObjects();
 
     return (
       <div>
@@ -56,4 +59,6 @@ export class FetchData extends Component {
     const data = await response.json();
     this.setState({ forecasts: data, loading: false });
   }
+
+  
 }
