@@ -19,12 +19,6 @@ public class CategoryController : ControllerBase
         _mapper = mapper;
     }
 
-    [HttpGet]
-    public IActionResult GetAll()
-    {
-        var category = _categoryService.GetAll();
-        return Ok(category);
-    }
 
     [HttpGet("{id}")]
     public IActionResult GetById(int id)

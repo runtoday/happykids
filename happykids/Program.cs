@@ -25,7 +25,7 @@ builder.Services.AddScoped<ISizeService, SizeService>();
 builder.Services.AddScoped<IFilterService, FilterService>();
 builder.Services.AddScoped<IStoredProcedureService, StoredProcedureService>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
-
+builder.Services.AddScoped<IBasketService, BasketService>();
 
 builder.Services.AddSwaggerGen(c =>
 {
