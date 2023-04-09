@@ -56,11 +56,11 @@ public class DataContext : DbContext
     public DbSet<Payment> Payment { get; set; }
 
 
-        public virtual List<StroedProduct> SpGetProductAll()
-        {
+    public virtual List<StroedProduct> SpGetProductAll()
+    {
             var result = Set<StroedProduct>().FromSqlRaw("Call GetProductAll()").ToList();
             return result;
-        }
+    }
 }
 
    /* public partial class YourStoredProcedureDbContext : YourDbContext

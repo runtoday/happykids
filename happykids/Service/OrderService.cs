@@ -43,8 +43,27 @@ public class OrderService : IOrderService
 
         // save user
         _context.Orders.Add(Order);
-
         _context.SaveChanges();
+
+        /*IEnumerable<ItemsOrder> ItemsOrder =*/
+
+        var Items = _context.Basket.Where(c=>c.custID == model.CustId).ToList();
+        //List<ItemsOrder> ItemsOrder = null;
+        /*int i  = 0;*/
+        foreach(var buff in Items)
+        {
+          ItemsOrder ItemsOrder = new ItemsOrder {
+                OrderID = Order.orderID,
+                productDetailID = buff.productDetailID,
+                amount = buff.amount
+          };
+
+        _context.ItemsOrder.Add(ItemsOrder);
+        _context.Basket.Remove(buff);
+        
+        }
+        _context.SaveChanges();
+        
         return Order.orderID;
     }
 

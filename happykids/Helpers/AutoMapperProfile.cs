@@ -6,16 +6,20 @@ using happykids.Models.Basket;
 using happykids.Models.Customer;
 using happykids.Models.Order;
 using happykids.Models.Payment;
+using happykids.Models.Address;
 
 public class AutoMapperProfile : Profile
 {
     public AutoMapperProfile()
     {
         // CreateRequest -> User
+        CreateMap<CreateReqAddress, Address>();
+        CreateMap<UpdateReqAddress, Address>();
         CreateMap<CreateReqPayment, Payment>();
         CreateMap<CreateReqPayment, Wallet>();
         CreateMap<CreateReqOrd, Orders>();
         CreateMap<CreateRequest, Basket>();
+        CreateMap<ItemsOrder, Basket>();
 
         CreateMap<CreateRequestCustomer, Customer>();
 
