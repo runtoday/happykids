@@ -4,7 +4,7 @@ namespace happykids.Entities;
   {
     public int paymentID { get; set; }
 
-    public string paymentDate { get; set; }
+    public DateTime paymentDate { get; set; }
     public int orderID { get; set; }
 
     public int custID { get; set; }

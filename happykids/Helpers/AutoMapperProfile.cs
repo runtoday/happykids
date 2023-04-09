@@ -14,7 +14,7 @@ public class AutoMapperProfile : Profile
     {
         // CreateRequest -> User
         CreateMap<CreateReqAddress, Address>();
-        CreateMap<UpdateReqAddress, Address>();
+
         CreateMap<CreateReqPayment, Payment>();
         CreateMap<CreateReqPayment, Wallet>();
         CreateMap<CreateReqOrd, Orders>();
@@ -22,7 +22,26 @@ public class AutoMapperProfile : Profile
         CreateMap<ItemsOrder, Basket>();
 
         CreateMap<CreateRequestCustomer, Customer>();
-
+        CreateMap<UpdateRequestCustomer, Customer>();
+        /*.ForAllMembers(x => x.Condition(
+                (src, dest, prop) =>
+                {
+                    // ignore both null & empty string properties
+                    if (prop == null) return false;
+                    if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string)prop)) return false;
+                    return true;
+                }
+            ));*/
+        CreateMap<UpdateReqAddress, Address>();
+            /*.ForAllMembers(x => x.Condition(
+                (src, dest, prop) =>
+                {
+                    // ignore both null & empty string properties
+                    if (prop == null) return false;
+                    if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string)prop)) return false;
+                    return true;
+                }
+            ));*/
         // UpdateRequest -> User
        /* CreateMap<UpdateRequest, Basket>()
             .ForAllMembers(x => x.Condition(

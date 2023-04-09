@@ -58,7 +58,7 @@ public class BasketService : IBasketService
     {
         var Basket = getBasket(model.custID,model.productDetailID);
 
-        Basket.amount = model.amount;
+        // Basket.amount = model.amount;
         // copy model to user and save
         _mapper.Map(model, Basket);
         _context.Basket.Update(Basket);

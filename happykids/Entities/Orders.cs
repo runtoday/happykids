@@ -5,11 +5,11 @@ namespace happykids.Entities;
   {
     public int orderID { get; set; }
 
-    public string orderDate { get; set; }
+    public DateTime orderDate { get; set; }
     
     public int custID { get; set; }
     
-    public string addressID { get; set; }
+    public int addressID { get; set; }
     
     public string shippingID { get; set; }
     
