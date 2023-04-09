@@ -17,6 +17,8 @@ public class DataContext : DbContext
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Customer>().HasKey(e=> new {e.custID});
             modelBuilder.Entity<Basket>().HasKey(e=> new {e.custID , e.productDetailID});
+            modelBuilder.Entity<ItemsOrder>().HasKey(e=> new {e.OrderID , e.productDetailID});    
+            modelBuilder.Entity<Orders>().HasKey(e=> new {e.orderID});    
             modelBuilder.Entity<StroedProduct>().HasNoKey();
     }
     protected override void OnConfiguring(DbContextOptionsBuilder options)

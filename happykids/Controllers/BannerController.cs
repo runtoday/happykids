@@ -20,7 +20,7 @@ public class BannerController : ControllerBase
     }
 
 
-    [HttpGet("Home")]
+    [HttpGet]
     public IActionResult GetHome()
     {
         var banner = _bannerService.GetHome();

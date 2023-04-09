@@ -28,12 +28,12 @@ public class CustomerController : ControllerBase
         return Ok(customer);
     }
 
-    [HttpGet("{id/Order}")]
+   /*[HttpGet("{id/Order}")]
     public IActionResult GetByCustId(int id)
     {
         var order = _customerService.GetByCustId(id);
         return Ok(order);
-    }
+    }*/
 
     [HttpPost]
     public IActionResult Create(CreateRequestCustomer model)
