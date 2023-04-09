@@ -6,30 +6,30 @@ using happykids.Services;
 
 [ApiController]
 [Route("[controller]")]
-public class StoredProcedureController : ControllerBase
+public class ProductServiceController : ControllerBase
 {
-    private IStoredProcedureService _StoredProcedure;
+    private IProductService _productService;
     private IMapper _mapper;
 
-    public StoredProcedureController(
-        IStoredProcedureService StoredProcedure,
+    public ProductServiceController(
+        IProductService productService,
         IMapper mapper)
     {
-        _StoredProcedure = StoredProcedure;
+        _productService = productService;
         _mapper = mapper;
     }
 
     [HttpGet]
     public IActionResult GetProductAll()
     {
-        var StoredProcedure = _StoredProcedure.GetProductAll();
+        var StoredProcedure = _productService.GetProductAll();
         return Ok(StoredProcedure);
     }
 
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
-        var category = _StoredProcedure.GetById(id);
+        var category = _productService.GetById(id);
         return Ok(category);
     }
 }

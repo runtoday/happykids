@@ -23,9 +23,10 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IColorService, ColorService>();
 builder.Services.AddScoped<ISizeService, SizeService>();
 builder.Services.AddScoped<IFilterService, FilterService>();
-builder.Services.AddScoped<IStoredProcedureService, StoredProcedureService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<IBasketService, BasketService>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 builder.Services.AddSwaggerGen(c =>
 {

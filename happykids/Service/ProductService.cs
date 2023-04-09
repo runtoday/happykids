@@ -5,18 +5,18 @@ using happykids.Entities;
 using happykids.Helpers;
 using Microsoft.EntityFrameworkCore;
 
-public interface IStoredProcedureService
+public interface IProductService
 {
     IEnumerable<StroedProduct> GetProductAll();
     ProductEx GetById(int id);
 }
 
-public class StoredProcedureService : IStoredProcedureService
+public class ProductService : IProductService
 {
     private DataContext _context;
     private readonly IMapper _mapper;
 
-    public StoredProcedureService(
+    public ProductService(
         DataContext context,
         IMapper mapper)
     {

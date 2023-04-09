@@ -3,6 +3,7 @@ namespace happykids.Helpers;
 using AutoMapper;
 using happykids.Entities;
 using happykids.Models.Basket;
+using happykids.Models.Customer;
 
 public class AutoMapperProfile : Profile
 {
@@ -10,6 +11,8 @@ public class AutoMapperProfile : Profile
     {
         // CreateRequest -> User
         CreateMap<CreateRequest, Basket>();
+
+        CreateMap<CreateRequestCustomer, Customer>();
 
         // UpdateRequest -> User
        /* CreateMap<UpdateRequest, Basket>()

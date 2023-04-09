@@ -15,6 +15,7 @@ public class DataContext : DbContext
    protected override void OnModelCreating(ModelBuilder modelBuilder)
    {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Customer>().HasKey(e=> new {e.custID});
             modelBuilder.Entity<Basket>().HasKey(e=> new {e.custID , e.productDetailID});
             modelBuilder.Entity<StroedProduct>().HasNoKey();
     }
@@ -35,6 +36,10 @@ public class DataContext : DbContext
     public DbSet<StroedProduct> GetProductAll { get; set; }
 
     public DbSet<Basket> Basket { get; set; }
+
+    
+    public DbSet<Customer> Customer { get; set; }
+
 
         public virtual List<StroedProduct> SpGetProductAll()
         {
