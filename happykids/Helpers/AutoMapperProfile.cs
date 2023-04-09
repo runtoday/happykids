@@ -13,6 +13,7 @@ public class AutoMapperProfile : Profile
     {
         // CreateRequest -> User
         CreateMap<CreateReqPayment, Payment>();
+        CreateMap<CreateReqPayment, Wallet>();
         CreateMap<CreateReqOrd, Orders>();
         CreateMap<CreateRequest, Basket>();
 

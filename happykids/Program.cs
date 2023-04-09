@@ -27,10 +27,13 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<IBasketService, BasketService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IBannerService, BannerService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 
 builder.Services.AddSwaggerGen(c =>
 {
-c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo{ Title = "My API", Version = "v1" });
+c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo{ Title = "HappyKidsByBank API", Version = "v1" });
 });
 
 var app = builder.Build();

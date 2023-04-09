@@ -6,7 +6,7 @@ using happykids.Helpers;
 
 public interface IBannerService
 {
-    IEnumerable<Banner> GetAll();
+    IEnumerable<Banner> GetHome();
     Banner GetById(int id);
 }
 
@@ -23,9 +23,9 @@ public class BannerService : IBannerService
         _mapper = mapper;
     }
 
-    public IEnumerable<Banner> GetAll()
+    public IEnumerable<Banner> GetHome()
     {
-        return _context.Banner;
+        return _context.Banner.Take(3);
     }
 
     public Banner GetById(int id)
