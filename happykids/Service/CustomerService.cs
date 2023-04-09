@@ -8,8 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 public interface ICustomerService
 {
+    
+    IEnumerable<Orders> GetByCustId(int id);
     Customer GetById(int id);
-    void Create(CreateRequestCustomer model);
+    int Create(CreateRequestCustomer model);
     void Update(int id, UpdateRequestCustomer model);
 
     public Customer GetByEmail(string email);
@@ -40,8 +42,12 @@ public class CustomerService : ICustomerService
         return _context.Customer.SingleOrDefault(c => c.email == email);
     }
 
+    public  IEnumerable<Orders> GetByCustId(int id)
+    {
+        return GetOrderByCustId(id);
+    }
 
-    public void Create(CreateRequestCustomer model)
+    public int Create(CreateRequestCustomer model)
     {
         // validate
         if (_context.Customer.Any(x => (x.email == model.Email)))
@@ -56,6 +62,7 @@ public class CustomerService : ICustomerService
         // save user
         _context.Customer.Add(Customer);
         _context.SaveChanges();
+        return Customer.custID;
     }
 
     public void Update(int id, UpdateRequestCustomer model)
@@ -66,6 +73,13 @@ public class CustomerService : ICustomerService
         _mapper.Map(model, Customer);
         _context.Customer.Update(Customer);
         _context.SaveChanges();
+    }
+
+    private IEnumerable<Orders> GetOrderByCustId(int id)
+    {
+        //var Customer = _context.Customer.FirstOrDefault( c => c.custID == id);
+        var Order = _context.Orders.Where(o => o.custID == id);
+        return Order;
     }
 
     // helper methods

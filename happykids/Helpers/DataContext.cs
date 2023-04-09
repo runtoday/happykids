@@ -40,6 +40,19 @@ public class DataContext : DbContext
     
     public DbSet<Customer> Customer { get; set; }
 
+    public DbSet<ItemsOrder> ItemsOrder { get; set; }
+
+    public DbSet<Orders> Orders { get; set; }
+
+    
+    public DbSet<Address> Address { get; set; }
+
+    public DbSet<Banner> Banner { get; set; }
+
+    public DbSet<Wallet> Wallet { get; set; }
+
+    public DbSet<Payment> Payment { get; set; }
+
 
         public virtual List<StroedProduct> SpGetProductAll()
         {

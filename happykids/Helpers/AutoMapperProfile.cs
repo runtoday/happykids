@@ -4,12 +4,16 @@ using AutoMapper;
 using happykids.Entities;
 using happykids.Models.Basket;
 using happykids.Models.Customer;
+using happykids.Models.Order;
+using happykids.Models.Payment;
 
 public class AutoMapperProfile : Profile
 {
     public AutoMapperProfile()
     {
         // CreateRequest -> User
+        CreateMap<CreateReqPayment, Payment>();
+        CreateMap<CreateReqOrd, Orders>();
         CreateMap<CreateRequest, Basket>();
 
         CreateMap<CreateRequestCustomer, Customer>();

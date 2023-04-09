@@ -10,6 +10,7 @@ using happykids.Models.Customer;
 public class CustomerController : ControllerBase
 {
     private ICustomerService _customerService;
+    
     private IMapper _mapper;
 
     public CustomerController(
@@ -27,12 +28,18 @@ public class CustomerController : ControllerBase
         return Ok(customer);
     }
 
+    [HttpGet("{id/Order}")]
+    public IActionResult GetByCustId(int id)
+    {
+        var order = _customerService.GetByCustId(id);
+        return Ok(order);
+    }
+
     [HttpPost]
     public IActionResult Create(CreateRequestCustomer model)
-    {
-        _customerService.Create(model);
-        var customer =_customerService.GetByEmail(model.Email);
-        return Ok(new { custID = customer.custID, email =customer.email});
+    {   
+        int id = _customerService.Create(model);
+        return Ok(new { custID = id, email =model.Email});
     }
 
     [HttpPut("{id}")]
