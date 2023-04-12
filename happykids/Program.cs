@@ -59,6 +59,19 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+{
+    // global cors policy
+    app.UseCors(x => x
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+
+    // global error handler
+    app.UseMiddleware<ErrorHandlerMiddleware>();
+
+    app.MapControllers();
+}
+
 
 app.MapControllerRoute(
     name: "default",

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import HomeBanner from './HomeBanner';
+import CardProduct from './Products/CardProduct';
+import {Link} from 'react-router-dom';
 import SingleProduct from "./Products/SingleProduct";
+import jumpTo from "./Navigation";
+import { Product } from "./Product";
 
 
 function RenderingArrayOfObjects2() {
@@ -158,7 +162,8 @@ export class Home extends Component {
       modalShow: false,
       login: true
     };*/
-    this.state = { products: [], loading: true };
+    this.state = { products: [], loading: true , id:0  };
+    this.productdetails = this.productdetails.bind(this);
     //this.addToBag = this.addToBag.bind(this);
   }
   componentDidMount() {
@@ -173,22 +178,20 @@ export class Home extends Component {
     this.setState({ products: data, loading: false });
   }
 
+    
+   productdetails() {
+    //const navigate = useNavigate();
+
+    this.setState({
+      id: this.state.id + 1
+    });
+  }
+
   static   renderproducts(products){
         return (
           <div class="product-container">
           {products.map(product =>
-          <div class="product-card">
-              <div class="product-image">
-                  <span class="discount-tag">50% off</span>
-                  <img src={"data:image/png;base64," + product.image} width={206} height={206} class="product-thumb" alt=""/>
-                  <button class="card-btn">add to whislist</button>
-              </div>
-              <div class="product-info">
-                  <h2 class="product-brand">{product.name}</h2>
-                  <p class="product-short-des">a short line about the cloth..</p>
-                  <span class="price">{product.price}bath</span><span class="actual-price">300 bath</span>
-              </div>
-          </div>
+          <CardProduct key={product.productID} product={product} />
           )}
           +7 more cards
           </div>
@@ -206,19 +209,6 @@ export class Home extends Component {
     : Home.renderproducts(this.state.products);
     return (    
     <div>
-    <nav class="navbar">
-    <div class="nav">
-    <img src="../assets/images/dark-logo.png" class="brand-logo" alt="" />
-    <div class="nav-items">
-        <div class="search">
-        <input type="text" class="search-box" placeholder="search brand, product" />
-            <button class="search-btn">search</button>
-        </div>
-        <a href="#"><img src="../assets/images/user.png" alt="" /></a>
-        <a href="#"><img src="../assets/images/cart.png" alt=""/></a>
-    </div>
-</div>
-</nav>
       <HomeBanner/>
       <section class="product">
         <h2 class="product-category">All Product</h2>
