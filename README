@@ -1,0 +1,19 @@
+# Getting Started 
+git clone https://github.com/runtoday/happykids.git
+
+# create database 
+
+use database mysql
+run script  e_commerce_init_database.sql
+run script  e_commerce_initdata
+
+### `npm start`
+cd path happykids\ClientApp
+npm install
+npm start
+
+### `donet run`
+cd path happykids\ClientApp
+dotnet install
+dotnet run
+
